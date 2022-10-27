@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class PlayerControl : MonoBehaviour
 
     private int desiredLine = 1;
     public float laneDistance = 4;
+
+    public float jumForce;
+    public float gravity = -20;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +25,19 @@ public class PlayerControl : MonoBehaviour
     {
         direction.z = Speed;
         characterController.Move(direction * Time.deltaTime);
+
+        if (characterController.isGrounded)
+        {
+            direction.y = -1;
+            if(Input.GetKeyDown(KeyCode.UpArrow)) {
+                Jump();
+            }
+        }else
+        {
+            direction.y += gravity * Time.deltaTime;
+        }
         
+
         if(Input.GetKeyDown(KeyCode.RightArrow) && desiredLine != 2)
         {
             desiredLine++;
@@ -42,7 +58,11 @@ public class PlayerControl : MonoBehaviour
             targerPositon += Vector3.right * laneDistance;
         }
 
-        // transform.position = targerPositon;
         transform.position = Vector3.Lerp(transform.position, targerPositon, 80*Time.deltaTime);
+    }
+
+    private void Jump()
+    {
+        direction.y = jumForce;        
     }
 }
