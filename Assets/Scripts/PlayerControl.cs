@@ -29,7 +29,7 @@ public class PlayerControl : MonoBehaviour
         if (characterController.isGrounded)
         {
             direction.y = -1;
-            if(Input.GetKeyDown(KeyCode.UpArrow)) {
+            if(SwipeManager.swipeUp) {
                 Jump();
             }
         }else
@@ -38,12 +38,12 @@ public class PlayerControl : MonoBehaviour
         }
         
 
-        if(Input.GetKeyDown(KeyCode.RightArrow) && desiredLine != 2)
+        if(SwipeManager.swipeRight && desiredLine != 2)
         {
             desiredLine++;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && desiredLine != 0)
+        if (SwipeManager.swipeLeft && desiredLine != 0)
         {
             desiredLine--;
         }
@@ -64,5 +64,13 @@ public class PlayerControl : MonoBehaviour
     private void Jump()
     {
         direction.y = jumForce;        
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.transform.tag == "Obstacle")
+        {
+            PlayerManager.gameOver = true;
+        }
     }
 }
