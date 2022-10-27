@@ -449,3 +449,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 406411029}
+--- !u!1 &1873548293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1873548295}
+  - component: {fileID: 1873548294}
+  m_Layer: 0
+  m_Name: TileManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1873548294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873548293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6badd9e8d6f42b49af9d849d422aa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilePrefabs:
+  - {fileID: 8460431420591994304, guid: 5071f572fb2a268419ca14e22ce3d889, type: 3}
+  - {fileID: 7366303515823431531, guid: 075723266eebf3049b7b2d2b7817a998, type: 3}
+  - {fileID: 4307525574976770429, guid: bea850d6dc75c894b8801314d87909fc, type: 3}
+  - {fileID: 7277893982192918999, guid: 5cebfe9d9c294c844872a648e6b88d55, type: 3}
+  - {fileID: 2727276801297662267, guid: 25c8d7e7dc098754c8b455cc835b9aab, type: 3}
+  - {fileID: 1379013493953481624, guid: 809cfbb7b14a84243a87fef67b042068, type: 3}
+  zSpwan: 0
+  tileLength: 30
+  numberOfTils: 5
+  playerTransform: {fileID: 406411029}
+--- !u!4 &1873548295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873548293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.24232724, y: 1.5842522, z: -2.8782215}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
