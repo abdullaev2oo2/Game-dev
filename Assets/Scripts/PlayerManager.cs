@@ -6,9 +6,13 @@ public class PlayerManager : MonoBehaviour
 {
     public static bool gameOver;
     public GameObject gameOverPanel;
+
+    public static bool isGameStarted;
+    public GameObject startText;
     // Start is called before the first frame update
     void Start()
     {
+        isGameStarted = false;
         gameOver = false;
         Time.timeScale = 1;
     }
@@ -20,6 +24,12 @@ public class PlayerManager : MonoBehaviour
         {
             Time.timeScale = 0;
             gameOverPanel.SetActive(true);
+        }
+
+        if(SwipeManager.tap)
+        {
+            isGameStarted = true;
+            Destroy(startText);
         }
     }
 }
