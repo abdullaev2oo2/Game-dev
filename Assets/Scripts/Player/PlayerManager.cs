@@ -19,6 +19,8 @@ public class PlayerManager : MonoBehaviour
         gameOver = false;
         Time.timeScale = 1;
         numberOfCoins = 0;
+
+        FindObjectOfType<AudioManager>().PlaySound("MainTheme");
     }
 
     // Update is called once per frame
@@ -31,8 +33,6 @@ public class PlayerManager : MonoBehaviour
         }
 
         coinsText.text = "COINS:" + numberOfCoins.ToString();
-
-        Debug.Log(numberOfCoins);
 
         if (SwipeManager.tap)
         {
