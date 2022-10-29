@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour
     private Vector3 move;
     public float forwardSpeed;
     public float maxSpeed;
+    public float speedMultiplier = 0.1f;
 
     private int desiredLane = 1;//0:left, 1:middle, 2:right
     public float laneDistance = 2.5f;//The distance between tow lanes
@@ -44,7 +45,7 @@ public class PlayerControl : MonoBehaviour
         {
             toggle = false;
             if (forwardSpeed < maxSpeed)
-                forwardSpeed += 0.1f * Time.fixedDeltaTime;
+                forwardSpeed += speedMultiplier * Time.fixedDeltaTime;
         }
         else
         {
