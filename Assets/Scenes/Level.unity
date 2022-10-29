@@ -264,18 +264,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3284ed3af47884d8f3ad501621ed9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 8
-  maxSpeed: 15
+  forwardSpeed: 8
+  maxSpeed: 18
   laneDistance: 2.5
-  jumForce: 12.5
-  gravity: -20
-  animator: {fileID: 943078791}
   isGrounded: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 723447625}
-  isSliding: 0
+  gravity: -12
+  jumpHeight: 2
+  animator: {fileID: 943078791}
+  slideDuration: 1.5
 --- !u!136 &406411026
 CapsuleCollider:
   m_ObjectHideFlags: 0
