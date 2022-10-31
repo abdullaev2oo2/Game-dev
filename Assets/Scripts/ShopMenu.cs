@@ -3,19 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class ShopMenu : MonoBehaviour
 {
-    public void PlayGame()
+    public void BackMenu()
     {
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene("Menu");
     }
 
     public void QuitGame()
     {
         Application.Quit();
-    }
-    public void OpenStore()
-    {
-        SceneManager.LoadScene("Shop");
     }
 }

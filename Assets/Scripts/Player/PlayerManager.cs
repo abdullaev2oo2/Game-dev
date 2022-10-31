@@ -18,22 +18,21 @@ public class PlayerManager : MonoBehaviour
         isGameStarted = false;
         gameOver = false;
         Time.timeScale = 1;
-        numberOfCoins = 0;
-
         FindObjectOfType<AudioManager>().PlaySound("MainTheme");
     }
 
     // Update is called once per frame
     void Update()
     {
+        numberOfCoins = PlayerPrefs.GetInt("NumberOfCoins", 0);
+        coinsText.text = "COINS:" + numberOfCoins.ToString();
+        
         if (gameOver)
         {
             Time.timeScale = 0;
             gameOverPanel.SetActive(true);
         }
-
-        coinsText.text = "COINS:" + numberOfCoins.ToString();
-
+        
         if (SwipeManager.tap)
         {
             isGameStarted = true;

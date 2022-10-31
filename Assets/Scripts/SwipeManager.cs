@@ -5,9 +5,8 @@ using UnityEngine;
 public class SwipeManager : MonoBehaviour
 {
     public static bool tap, swipeLeft, swipeRight, swipeUp, swipeDown;
-    private bool isDraging = false;
-    private Vector2 startTouch, swipeDelta;
-
+    public static bool isDraging = false;
+    public static Vector2 startTouch, swipeDelta;
     private void Update()
     {
         tap = swipeDown = swipeUp = swipeLeft = swipeRight = false;
