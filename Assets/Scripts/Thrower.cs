@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class Thrower : MonoBehaviour
@@ -51,7 +48,7 @@ public class Thrower : MonoBehaviour
 
     void Update()
     {
-        if(SwipeManager.tap)
+        if(SwipeManager.doubleTap)
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(SwipeManager.startTouch);

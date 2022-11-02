@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class SwipeManager : MonoBehaviour
 {
-    public static bool tap, swipeLeft, swipeRight, swipeUp, swipeDown;
+    public static bool tap, swipeLeft, swipeRight, swipeUp, swipeDown, doubleTap;
     public static bool isDraging = false;
     public static Vector2 startTouch, swipeDelta;
+
     private void Update()
     {
-        tap = swipeDown = swipeUp = swipeLeft = swipeRight = false;
+        tap = swipeDown = swipeUp = swipeLeft = swipeRight = doubleTap = false;
         #region Standalone Inputs
         if (Input.GetMouseButtonDown(0))
         {
@@ -45,14 +46,14 @@ public class SwipeManager : MonoBehaviour
         swipeDelta = Vector2.zero;
         if (isDraging)
         {
-            if (Input.touches.Length < 0)
+            if (Input.touches.Length < 0 )
                 swipeDelta = Input.touches[0].position - startTouch;
             else if (Input.GetMouseButton(0))
                 swipeDelta = (Vector2)Input.mousePosition - startTouch;
         }
 
         //Did we cross the distance?
-        if (swipeDelta.magnitude > 100)
+        if (swipeDelta.magnitude > 10)
         {
             //Which direction?
             float x = swipeDelta.x;
@@ -73,10 +74,8 @@ public class SwipeManager : MonoBehaviour
                 else
                     swipeUp = true;
             }
-
             Reset();
         }
-
     }
 
     private void Reset()
