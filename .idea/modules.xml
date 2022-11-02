@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/export_game.iml" filepath="$PROJECT_DIR$/.idea/modules/export_game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/launcher/export_game.launcher.iml" filepath="$PROJECT_DIR$/.idea/modules/launcher/export_game.launcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/launcher/export_game.launcher.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/launcher/export_game.launcher.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/launcher/export_game.launcher.main.iml" filepath="$PROJECT_DIR$/.idea/modules/launcher/export_game.launcher.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/launcher/export_game.launcher.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/launcher/export_game.launcher.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unityLibrary/export_game.unityLibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/unityLibrary/export_game.unityLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unityLibrary/export_game.unityLibrary.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/unityLibrary/export_game.unityLibrary.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unityLibrary/export_game.unityLibrary.main.iml" filepath="$PROJECT_DIR$/.idea/modules/unityLibrary/export_game.unityLibrary.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unityLibrary/export_game.unityLibrary.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/unityLibrary/export_game.unityLibrary.unitTest.iml" />
+    </modules>
+  </component>
+</project>
