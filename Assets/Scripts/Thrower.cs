@@ -52,7 +52,6 @@ public class Thrower : MonoBehaviour
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(SwipeManager.startTouch);
-
             if(Physics.Raycast(ray, out hit))
             {
                 BoxCollider bc = hit.collider as BoxCollider;

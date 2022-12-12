@@ -4,28 +4,64 @@ using UnityEngine;
 
 public class Throwing : MonoBehaviour
 {
-    [SerializeField]
-    private string StickTag;
-    private Rigidbody body;
-    // Start is called before the first frame update
-    void Start()
+    [Header("References")]
+    public Transform camera;
+    public Transform attackPosition;
+    public GameObject objectToThrow;
+
+    [Header("Settings")]
+    public int totalThrows;
+    public float throwCooldown;
+
+    [Header("Throwing")]
+    public float throwForce;
+    public float throwUpwardForce;
+
+    bool readyToThrow;
+
+    private void Start()
     {
-        body = GetComponent<Rigidbody>();
+        readyToThrow = true;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        if(collision.gameObject.CompareTag(StickTag))
+        if (SwipeManager.doubleTap)
         {
-            body.isKinematic = true;
-        }else
-        {
-            body.useGravity = true;
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(SwipeManager.startTouch);
+            Debug.Log(ray);
+            if (Physics.Raycast(ray, out hit))
+            {
+                BoxCollider bc = hit.collider as BoxCollider;
+                if (hit.collider.CompareTag("Obstacle"))
+                {
+                    Throw();
+                    Destroy(bc.gameObject);
+                }
+            }
         }
-
     }
-    public void MoveWithVelocity(Vector3 Velocity)
+
+    public void Throw()
     {
-        body.velocity = Velocity;
+        readyToThrow = false;
+
+        GameObject projectile = Instantiate(objectToThrow, attackPosition.position, camera.rotation);
+
+        Rigidbody projtileDb = projectile.GetComponent<Rigidbody>();
+
+        Vector3 forceAdd = camera.transform.forward * throwForce + transform.up * throwUpwardForce;
+
+        projtileDb.AddForce(forceAdd, ForceMode.Impulse);
+
+        totalThrows--;
+
+        Invoke(nameof(ResetThrow), throwCooldown);
+    }
+
+    public void ResetThrow()
+    {
+        readyToThrow = true;
     }
 }
