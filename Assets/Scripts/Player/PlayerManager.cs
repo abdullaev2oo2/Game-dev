@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour
 {
     public static bool gameOver;
+    public static bool gameWon;
     public GameObject gameOverPanel;
+    public GameObject gameWonPanel;
 
     public static bool isGameStarted;
     public GameObject startText;
@@ -17,6 +19,11 @@ public class PlayerManager : MonoBehaviour
     {
         isGameStarted = false;
         gameOver = false;
+        gameWon = false;
+
+        gameWonPanel.SetActive(false);
+        gameOverPanel.SetActive(false);
+
         Time.timeScale = 1;
         FindObjectOfType<AudioManager>().PlaySound("MainTheme");
     }
@@ -31,6 +38,12 @@ public class PlayerManager : MonoBehaviour
         {
             Time.timeScale = 0;
             gameOverPanel.SetActive(true);
+        }
+
+        if(gameWon)
+        {
+            Time.timeScale = 0;
+            gameWonPanel.SetActive(true);
         }
         
         if (SwipeManager.tap)

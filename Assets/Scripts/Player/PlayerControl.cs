@@ -37,7 +37,7 @@ public class PlayerControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!PlayerManager.isGameStarted || PlayerManager.gameOver)
+        if (!PlayerManager.isGameStarted || PlayerManager.gameOver || PlayerManager.gameWon)
             return;
 
         //Increase Speed
@@ -57,7 +57,7 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        if (!PlayerManager.isGameStarted || PlayerManager.gameOver)
+        if (!PlayerManager.isGameStarted || PlayerManager.gameOver || PlayerManager.gameWon)
             return;
 
         animator.SetBool("isGameStarted", true);
@@ -143,6 +143,13 @@ public class PlayerControl : MonoBehaviour
             FindObjectOfType<AudioManager>().PlaySound("GameOver");
             FindObjectOfType<AudioManager>().StopSound("MainTheme");
         }
+        if (hit.transform.tag == "Finish")
+        {
+            PlayerManager.gameWon = true;
+            FindObjectOfType<AudioManager>().PlaySound("GameOver");
+            FindObjectOfType<AudioManager>().StopSound("MainTheme");
+        }
+
     }
 
     private IEnumerator Slide()
